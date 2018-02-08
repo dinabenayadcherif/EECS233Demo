@@ -4,8 +4,7 @@ public class Employee {
 	private String name;
 	private int age;
 	private int salary;
-	private Employee significantOther;
-
+	
 	public Employee(String name, int age, int salary){
 		this.name = name;
 		this.age = age;
@@ -37,11 +36,8 @@ public class Employee {
 		return this.salary;
 	}
 	
-	public Employee getSignificantOther() {
-		return significantOther;
-	}
-
-	public void setSignificantOther(Employee significantOther) {
-		this.significantOther = significantOther;
-	}
+	public static void main(String[] args) {
+        
+    }
+	
 }
