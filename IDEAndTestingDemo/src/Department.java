@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * 1. incorrect lookup in Receptionist.addNumberToPhonebook
  * 2. error in average calculation
  * 3. getAllUnassignedSalesmen: for loop index
- * 4. getAllUnassignedSalesmen: for loop index 
+ * 4. getAllUnassignedSalesmen: null if statement incorrect 
  *  
  */
 public class Department<T extends Employee> {
@@ -48,19 +48,37 @@ public class Department<T extends Employee> {
 		return averageSalary/employees.size();
 	}
 	
+	public ArrayList<T> findUnassignedEmployees(){
+		ArrayList<T> unassignedEmployees = new ArrayList<T>();
+		for (int i = 0; i <= this.employees.size(); i++) {
+			if(((Salesman) this.employees.get(i)).getCurrentSalesLocation() == null)
+				unassignedEmployees.add(this.employees.get(i));
+		}
+		return unassignedEmployees;
+	}
+	
+	public ArrayList<T> findAssignedEmployees(){
+		ArrayList<T> assignedEmployees = new ArrayList<T>();
+		for (int i = 0; i <= this.employees.size(); i++) {
+			if(((Salesman) this.employees.get(i)).getCurrentSalesLocation() != null)
+				assignedEmployees.add(this.employees.get(i));
+		}
+		return assignedEmployees;
+	}
+	
 	public static void main(String args[]) {
-		Accountant angelaMartin = new Accountant("Angela Martin", 45, 30000);
-		Accountant oscarMartinez = new Accountant("Oscar Martinez", 38, 30000);
-		Receptionist pamBeesly = new Receptionist("Pam Beesly", 35, 250000);
-		Salesman jimHalpert = new Salesman("Jim Halpert", 40, 450000);
-		
+		Accountant angelaMartin = new Accountant("Angela Martin", 45, 10000);
+		Accountant oscarMartinez = new Accountant("Oscar Martinez", 38, 10000);
+		Receptionist pamBeesly = new Receptionist("Pam Beesly", 35, 100000);
+
 		Department<Accountant> accounting = new Department<Accountant>("Accounting");
-		Department<Salesman> sales = new Department<Salesman>("Sales");
 		accounting.addEmployee(angelaMartin);
 		accounting.addEmployee(oscarMartinez);
-		sales.addEmployee(jimHalpert);
 		//accounting.addEmployee(pamBeesly);
 		System.out.println(accounting.getEmployees());
+		
+		
+		
 
     }
 
