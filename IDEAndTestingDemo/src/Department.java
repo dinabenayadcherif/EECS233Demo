@@ -1,6 +1,18 @@
 import java.util.ArrayList;
 
-
+/**
+ * 
+ * @author vsocrates
+ *
+ * @param <T>
+ * 
+ * List of Errors:
+ * 1. incorrect lookup in Receptionist.addNumberToPhonebook
+ * 2. error in average calculation
+ * 3. getAllUnassignedSalesmen: for loop index
+ * 4. getAllUnassignedSalesmen: for loop index 
+ *  
+ */
 public class Department<T extends Employee> {
 	
 	private ArrayList<T> employees;
@@ -31,7 +43,7 @@ public class Department<T extends Employee> {
 	public int averageSalary() {
 		int averageSalary = 0;
 		for(int i = 0; i< employees.size(); i++) {
-			averageSalary = averageSalary + employees.get(i).getSalary();
+			averageSalary = employees.get(i).getSalary();
 		}
 		return averageSalary/employees.size();
 	}
