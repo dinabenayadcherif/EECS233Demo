@@ -36,8 +36,4 @@ public class Employee {
 		return this.salary;
 	}
 	
-	public static void main(String[] args) {
-        
-    }
-	
 }

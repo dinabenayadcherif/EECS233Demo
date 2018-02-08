@@ -28,6 +28,24 @@ public class Department<T extends Employee> {
 		return this.employees;
 	}
 	
+	public ArrayList<T> findUnassignedEmployees(){
+		ArrayList<T> unassignedEmployees = new ArrayList<T>();
+		for (int i = 0; i <= this.employees.size(); i++) {
+			if(((Salesman) this.employees.get(i)).getCurrentSalesLocation() == null)
+				unassignedEmployees.add(this.employees.get(i));
+		}
+		return unassignedEmployees;
+	}
+	
+	public ArrayList<T> findAssignedEmployees(){
+		ArrayList<T> assignedEmployees = new ArrayList<T>();
+		for (int i = 0; i <= this.employees.size(); i++) {
+			if(((Salesman) this.employees.get(i)).getCurrentSalesLocation() != null)
+				assignedEmployees.add(this.employees.get(i));
+		}
+		return assignedEmployees;
+	}
+	
 	public static void main(String args[]) {
 		Accountant angelaMartin = new Accountant("Angela Martin", 45, 10000);
 		Accountant oscarMartinez = new Accountant("Oscar Martinez", 38, 10000);
