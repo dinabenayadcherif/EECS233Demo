@@ -47,13 +47,16 @@ public class Department<T extends Employee> {
 	}
 	
 	public static void main(String args[]) {
-		Accountant angelaMartin = new Accountant("Angela Martin", 45, 10000);
-		Accountant oscarMartinez = new Accountant("Oscar Martinez", 38, 10000);
-		Receptionist pamBeesly = new Receptionist("Pam Beesly", 35, 100000);
-
+		Accountant angelaMartin = new Accountant("Angela Martin", 45, 30000);
+		Accountant oscarMartinez = new Accountant("Oscar Martinez", 38, 30000);
+		Receptionist pamBeesly = new Receptionist("Pam Beesly", 35, 250000);
+		Salesman jimHalpert = new Salesman("Jim Halpert", 40, 450000);
+		
 		Department<Accountant> accounting = new Department<Accountant>("Accounting");
+		Department<Salesman> sales = new Department<Salesman>("Sales");
 		accounting.addEmployee(angelaMartin);
 		accounting.addEmployee(oscarMartinez);
+		sales.addEmployee(jimHalpert);
 		//accounting.addEmployee(pamBeesly);
 		System.out.println(accounting.getEmployees());
 		
