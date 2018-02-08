@@ -28,22 +28,12 @@ public class Department<T extends Employee> {
 		return this.employees;
 	}
 	
-	public ArrayList<T> findUnassignedEmployees(){
-		ArrayList<T> unassignedEmployees = new ArrayList<T>();
-		for (int i = 0; i <= this.employees.size(); i++) {
-			if(((Salesman) this.employees.get(i)).getCurrentSalesLocation() == null)
-				unassignedEmployees.add(this.employees.get(i));
+	public int averageSalary() {
+		int averageSalary = 0;
+		for(int i = 0; i< employees.size(); i++) {
+			averageSalary = averageSalary + employees.get(i).getSalary();
 		}
-		return unassignedEmployees;
-	}
-	
-	public ArrayList<T> findAssignedEmployees(){
-		ArrayList<T> assignedEmployees = new ArrayList<T>();
-		for (int i = 0; i <= this.employees.size(); i++) {
-			if(((Salesman) this.employees.get(i)).getCurrentSalesLocation() != null)
-				assignedEmployees.add(this.employees.get(i));
-		}
-		return assignedEmployees;
+		return averageSalary/employees.size();
 	}
 	
 	public static void main(String args[]) {
