@@ -44,5 +44,4 @@ public class Employee {
 	public void setSignificantOther(Employee significantOther) {
 		this.significantOther = significantOther;
 	}
-	
 }
